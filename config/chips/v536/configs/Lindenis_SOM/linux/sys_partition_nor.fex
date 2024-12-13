@@ -1,35 +1,35 @@
 ;---------------------------------------------------------------------------------------------------------
-; 说明： 脚本中的字符串区分大小写，用户可以修改"="后面的数值，但是不要修改前面的字符串
+; Description: Strings in the script are case-sensitive. Users can modify the value after the "=" sign, but should not modify the strings before it.
 ;---------------------------------------------------------------------------------------------------------
 
 
 ;--------------------------------------------------------------------------------------------------
-;                                   固件下载参数配置
+;                                   Firmware Download Parameter Configuration
 ;--------------------------------------------------------------------------------------------------
 ;****************************************************
-;    mbr的大小, 以Kbyte为单位
+;    Size of the MBR, in Kbytes
 ;****************************************************
 [mbr]
 size = 16
 
 ;********************************************************************************************************
-;                                              分区配置
+;                                              Partition Configuration
 ;
 ;
-;  partition 定义范例:
-;    [partition]                ;  //表示是一个分区
-;    name        = USERFS2      ; //分区名称
-;    size        = 16384        ; //分区大小 单位: 扇区.分区表示个数最多2^31 * 512 = 2T
-;    downloadfile = "123.fex"   ; //下载文件的路径和名称，可以使用相对路径，相对是指相对于image.cfg文件所在分区。也可以使用绝对路径
-;    keydata     = 1            ; //私有数据分区，重新量产数据将不丢失
-;    encrypt     = 1            ; //采用加密方式烧录，将提供数据加密，但损失烧录速度
-;    user_type   = ?            ; //私有用法
-;    verify      = 1            ; //要求量产完成后校验是否正确
+;  Partition definition example:
+;    [partition]                ;  // Indicates a partition
+;    name        = USERFS2      ; // Partition name
+;    size        = 16384        ; // Partition size in sectors. The maximum number of partitions is 2^31 * 512 = 2T
+;    downloadfile = "123.fex"   ; // Path and name of the file to be downloaded. You can use a relative path, which is relative to the partition where the image.cfg file is located. An absolute path can also be used.
+;    keydata     = 1            ; // Private data partition, re-manufactured data will not be lost
+;    encrypt     = 1            ; // Use encryption for burning, which will provide data encryption but slow down the burning speed
+;    user_type   = ?            ; // Private usage
+;    verify      = 1            ; // Verify after manufacturing to ensure correctness
 ;
-; 注：1、name唯一, 不允许同名
-;     2、name最大12个字符
-;     3、size = 0, 将创建一个无大小的空分区
-;     4、为了安全和效率考虑，分区大小最好保证为16M字节的整数倍
+; Note: 1. name must be unique, duplicate names are not allowed
+;       2. name can be up to 12 characters
+;       3. size = 0, will create an empty partition with no size
+;       4. For safety and efficiency, it is recommended that partition sizes be multiples of 16M bytes
 ;********************************************************************************************************
 [partition_start]
 
